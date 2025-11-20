@@ -90,6 +90,16 @@ public class MatrizInversa {
         System.out.println("Solo use una matriz de 2x2.");
         return null;
     }
+     // se imprime la matriz
+    public static void imprimirMatriz(double[][] matriz) {
+        for (double[] fila : matriz) {
+            for (double valor : fila) {
+                System.out.printf("%.2f ", valor);
+            }
+            System.out.println();
+        }
+    }
+
 
 }
 
