@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class MatrizInversa {
@@ -97,6 +99,20 @@ public class MatrizInversa {
                 System.out.printf("%.2f ", valor);
             }
             System.out.println();
+        }
+    }
+
+    // guarda la matriz inversa en otro archivo
+    public static void escribirArchivo(double[][] matriz, String nombreArchivo) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo))) {
+            for (double[] fila : matriz) {
+                for (double valor : fila) {
+                    bw.write(String.format("%.4f ", valor));
+                }
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("⚠ Error al escribir archivo: " + e.getMessage());
         }
     }
 
