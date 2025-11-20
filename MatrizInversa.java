@@ -64,7 +64,32 @@ public class MatrizInversa {
             return null;
         }
     }
-    
+
+    // aqui se calcula la matriz inversa (solo para matrices 2x2 use en este ejemplo)
+    public static double[][] calcularInversa(double[][] matriz) {
+        int n = matriz.length;
+
+        // se verifica si es cuadrada
+        if (n != matriz[0].length) {
+            return null;
+        }
+
+        if (n == 2) { // solo una prueba de 2x2
+            double det = (matriz[0][0] * matriz[1][1]) - (matriz[0][1] * matriz[1][0]);
+
+            if (det == 0) return null;
+
+            double[][] inversa = {
+                { matriz[1][1] / det, -matriz[0][1] / det },
+                { -matriz[1][0] / det, matriz[0][0] / det }
+            };
+
+            return inversa;
+        }
+
+        System.out.println("Solo use una matriz de 2x2.");
+        return null;
+    }
 
 }
 
